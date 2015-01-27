@@ -34,7 +34,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.get('/file-list', function (req, res, next) {
     var directory = req.param('directory') || '';
-    var dirPath = path.join(config.root, directory);
+    var dirPath = path.join(config.comics_root, directory);
 
     fs.readdirAsync(dirPath)
         .map(function (filename) {
@@ -61,7 +61,7 @@ app.get('/file-list', function (req, res, next) {
 
 app.get('/comic/list', function (req, res, next) {
     var file = req.param('file') || '';
-    var filePath = path.join(config.root, file);
+    var filePath = path.join(config.comics_root, file);
     var fd, stat, eocd, entries = [];
 
     fs.openAsync(filePath, 'r')
@@ -152,7 +152,7 @@ app.get('/comic/list', function (req, res, next) {
 app.get('/comic/image', function (req, res, next) {
     var file = req.param('file') || '';
     var offset = +(req.param('offset') || 0);
-    var filePath = path.join(config.root, file);
+    var filePath = path.join(config.comics_root, file);
     var fd, fileInfo;
 
     fs.openAsync(filePath, 'r')

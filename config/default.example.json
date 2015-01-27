@@ -1,3 +1,6 @@
 {
-  "root" : "/home/yourusername/Comics"
+  "comics_root" : "/home/yourusername/Comics",
+  "allowed_origins": [
+    "*"
+  ]
 }
