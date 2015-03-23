@@ -173,6 +173,7 @@ function acceptsEncoding (req, encoding) {
 function handleOrigin (req, res, next) {
     var origin = req.header('origin');
 
+
     if (!origin) {
         return next();
     }
